@@ -3,5 +3,9 @@
   become: true
   user:
     name: decide
+    password: decide
     comment: Decide app user
     state: present
+
+- name: Create a PostgreSQL database user
+  shell: sudo -u postgres bash -c "psql -c \"CREATE USER decide WITH CREATEDB PASSWORD 'decide';\""
